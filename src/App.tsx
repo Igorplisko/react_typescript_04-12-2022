@@ -1,19 +1,17 @@
-import React, { createElement as element } from 'react';
+import { Product } from './components/Product';
+import {products} from './data/products'
+
 
 function App() {
-  // console.log() //!return React.createElement('h1', {}, 'Hello, Igor' )
-  return element('div', { className: 'container' }, [
-    element('h1', { className: 'font-bold', key: 1 }, 'Hello, Igor'),
-    element(
-      'button',
-      {
-        className: 'py-2 px-4 border',
-        key: 2,
-        onClick: () => console.log('Cliked'),
-      },
-      'Click me'
-    ),
-  ]);
+ 
+ 
+  return (
+    <div className="container mx-auto max-w-2xl pt-5">
+      <Product objectProduct={products[0]}  />
+      <Product objectProduct={products[1]}  />
+      
+    </div>
+  );
 }
 
 export default App;
