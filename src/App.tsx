@@ -1,15 +1,18 @@
+import { ErrorMessage } from './components/ErrorMessage';
+import { Loader } from './components/Loader';
 import { Product } from './components/Product';
-import {products} from './data/products'
-
+import { useProducts } from './hooks/products';
 
 function App() {
- 
- 
+  const { dataProducts, loading, error } = useProducts();
+
   return (
     <div className="container mx-auto max-w-2xl pt-5">
-      <Product objectProduct={products[0]}  />
-      <Product objectProduct={products[1]}  />
-      
+      {loading && <Loader/>}
+      {error && <ErrorMessage justError={error}/>}
+      {dataProducts.map((oneProduct) => (
+        <Product objectProduct={oneProduct} key={oneProduct.id} />
+      ))}
     </div>
   );
 }
