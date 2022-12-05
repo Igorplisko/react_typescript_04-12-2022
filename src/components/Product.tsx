@@ -8,7 +8,7 @@ interface ProductProps {
 export function Product({ objectProduct }: ProductProps) {
   const [details, setDetails] = useState(false);
   const btnClassName = details ? 'bg-green-400' : 'bg-sky-400';
-  const btnCommonClasses = ['py-2 px4 border', btnClassName];
+  const btnCommonClasses = ['py-2 px-4 border', btnClassName];
 
   return (
     <div className="border py-2 px-4 rounded flex flex-col items-center mb-2">
@@ -32,7 +32,7 @@ export function Product({ objectProduct }: ProductProps) {
           <p>
             Rate:{' '}
             <span style={{ fontWeight: 'bold' }}>
-              {objectProduct.rating.rate}
+              {objectProduct?.rating?.rate}
             </span>
           </p>
         </div>
